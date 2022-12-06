@@ -8,6 +8,10 @@ pipeline {
             steps {
                 echo 'Hello World'
             }
+        stage('notify') {
+            steps {
+                slackSend channel: '#slack-for-integration', message: 'it is done', tokenCredentialId: 'slack'
+            }
         }
     }
 }
